@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MarvoStore – Nuestros Servicios</title>
+
+  <!-- Fuentes -->
+  <link rel="preload" href="vendor/fonts/stylesheet.css" as="style">
+  <link rel="stylesheet" href="vendor/fonts/stylesheet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="../imagenes/logo.png" />
+</head>
+<body>
+  <div class="grid-background">
+    <div class="logo">
+      <img src="../imagenes/logo.png" alt="Logo" class="logo2">
+    </div>
+
+    <header>
+      <nav class="navbar">
+        <div class="buttons">
+          <a class="volver" href="../index.html">Inicio</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="store-badge">🏪 Tienda Digital</div>
+
+        <h1 class="main-title">Nuestros Servicios</h1>
+        <p class="subtitle">
+          Descubre nuestros paquetes de servicios digitales diseñados para impulsar tu presencia online.
+          Calidad profesional y precios transparentes.
+        </p>
+
+        <!-- Pestañas -->
+        <div class="filter-tabs">
+          <button class="tab active">Todos</button>
+          <button class="tab">Diseño Gráfico</button>
+          <button class="tab">Desarrollo Web</button>
+          <button class="tab">Bots Discord</button>
+          <button class="tab">Video</button>
+        </div>
+
+        <!-- Tarjetas -->
+        <div class="services-grid">
+          <!-- Diseño Gráfico -->
+          <div class="service-card" data-category="diseño gráfico">
+            <div class="service-image">
+              <img src="../imagenes/logo.png" alt="Logo Marvo" class="logo-img" />
+              <span class="service-tag">Diseño Gráfico</span>
+            </div>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-text">• Más vendido</span>
+            </div>
+            <h3 class="service-title">Logo Profesional</h3>
+            <p class="service-desc">Diseño de logo moderno, vectorizado y personalizado para tu proyecto.</p>
+            <div class="service-footer">
+              <span class="price">$30 USD</span>
+              <button class="details-btn">Ver detalles</button>
+            </div>
+          </div>
+
+          <!-- Desarrollo Web -->
+          <div class="service-card" data-category="desarrollo web">
+            <div class="service-image">
+              <img src="../imagenes/logo.png" alt="Logo Marvo" class="logo-img" />
+              <span class="service-tag">Desarrollo Web</span>
+            </div>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-text">• Personalizable</span>
+            </div>
+            <h3 class="service-title">Landing Page</h3>
+            <p class="service-desc">Diseño de una página de inicio impactante y responsive.</p>
+            <div class="service-footer">
+              <span class="price">$120 USD</span>
+              <button class="details-btn">Ver detalles</button>
+            </div>
+          </div>
+
+          <!-- Bots Discord -->
+          <div class="service-card" data-category="bots discord">
+            <div class="service-image">
+              <img src="../imagenes/logo.png" alt="Logo Marvo" class="logo-img" />
+              <span class="service-tag">Bots Discord</span>
+            </div>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-text">• Incluye base de datos</span>
+            </div>
+            <h3 class="service-title">Bot Moderador</h3>
+            <p class="service-desc">Bot personalizado con comandos, sistema de warns y respuestas automáticas.</p>
+            <div class="service-footer">
+              <span class="price">$80 USD</span>
+              <button class="details-btn">Ver detalles</button>
+            </div>
+          </div>
+
+          <!-- Video -->
+          <div class="service-card" data-category="video">
+            <div class="service-image">
+              <img src="../imagenes/logo.png" alt="Logo Marvo" class="logo-img" />
+              <span class="service-tag">Video</span>
+            </div>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-text">• Editable</span>
+            </div>
+            <h3 class="service-title">Intro Animada</h3>
+            <p class="service-desc">Intro profesional en After Effects con música y efectos visuales.</p>
+            <div class="service-footer">
+              <span class="price">$25 USD</span>
+              <button class="details-btn">Ver detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Detalles -->
+  <div id="serviceModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">Título del servicio</h2>
+      <p id="modalDescription">Descripción detallada del servicio.</p>
+      <span id="modalPrice" class="price-modal">$0</span>
+      <br><br>
+      <div class="pay-buttons">
+        <a href="https://www.mercadopago.com.ar/" target="_blank" class="mp-button">
+          <i class="fa-brands fa-cc-mastercard"></i> MercadoPago
+        </a>
+        <a href="https://www.paypal.com/ar/home?locale.x=es_AR" target="_blank" class="pp-button">
+          <i class="fa-brands fa-cc-mastercard"></i> PayPal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs  = document.querySelectorAll(".filter-tabs .tab");
+      const cards = document.querySelectorAll(".service-card");
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+          const categoria = tab.textContent.trim().toLowerCase();
+
+          cards.forEach(card => {
+            const catCard = card.dataset.category.toLowerCase();
+            const mostrar = categoria === "todos" || catCard === categoria;
+            card.style.display = mostrar ? "block" : "none";
+          });
+        });
+      });
+
+      const modal = document.getElementById("serviceModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDescription");
+      const modalPrice = document.getElementById("modalPrice");
+      const closeModal = document.querySelector(".modal .close");
+
+      document.querySelectorAll(".details-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const card = btn.closest(".service-card");
+          modalTitle.textContent = card.querySelector(".service-title").textContent;
+          modalDesc.textContent  = card.querySelector(".service-desc").textContent;
+          modalPrice.textContent = card.querySelector(".price").textContent;
+          modal.classList.remove("hidden");
+        });
+      });
+
+      closeModal.addEventListener("click", () => modal.classList.add("hidden"));
+      window.addEventListener("click", e => { if (e.target === modal) modal.classList.add("hidden"); });
+    });
+  </script>
+</body>
+</html>

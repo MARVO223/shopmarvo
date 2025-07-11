@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MarvoStore</title>
+  <link rel="preload" href="vendor/fonts/stylesheet.css" as="style">
+  <link href="vendor/fonts/stylesheet.css" rel="stylesheet" />
+  <link href="../fonts.googleapis.com/css2b043.css?family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="imagenes/logo.png" />
+</head>
+<body>
+
+<div class="grid-background">
+    
+    <div class="logo">
+        <img src="imagenes/logo.png" alt="Logo" class="logo2">
+    </div>
+    
+    <div class="content">
+        <header class="hero">
+            <div class="badge">AR Desde Argentina para el mundo</div>
+            
+            <h1>Soluciones digitales <br> para elevar tu <br> presencia online.</h1>
+            
+            <p class="subtitle">
+                Transformamos tus ideas en realidades digitales impactantes. 
+                Diseño gráfico, desarrollo web y bots de Discord a medida.
+            </p>
+            
+            <div class="buttons">
+                <a class='btn btn-primary' href='paginas/tienda.html'>Ver Tienda</a>
+                <a href="https://discord.gg/" target="_blank" class="btn btn-secondary">Contactar por Discord</a>
+            </div>
+        </header>
+
+  <section class="stats-title">
+    <h2>Estadísticas de la Store</h2>
+    <p>Somos una store realmente exclusiva</p>
+  </section>
+  
+  <div class="stats-panels-wrapper">
+    <div class="stats-panels">
+      <div class="stats-box">
+        <i class="fa-brands fa-discord"></i>
+        <h3><span class="counter" data-target="150">0</span>+</h3>
+        <p>Miembros en discord</p>
+      </div>
+      
+      <div class="stats-box">
+        <i class="fas fa-users"></i>
+        <h3><span class="counter" data-target="15">0</span>+</h3>
+        <p>Clientes registrados</p>
+      </div>
+      
+      <div class="stats-box">
+        <i class="fas fa-star"></i>
+        <h3><span class="counter" data-target="30">0</span>+</h3>
+        <p>Ventas completadas</p>
+      </div>               
+  </div>  
+
+        <section class="about">
+            <div class="container">
+                <h2>¿Por qué elegirnos?</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Con años de experiencia en el mundo digital, nos especializamos en crear soluciones innovadoras que impulsan el crecimiento de tu negocio. Desde Argentina, trabajamos con clientes de todo el mundo, ofreciendo calidad internacional a precios competitivos.</p>
+                    <div class="ventajas">
+                        <ul>
+                            <li>✓ Soporte 24/7.</li>
+                            <li>✓ Garantía de satisfacción.</li>
+                            <li>✓ Precios competitivos.</li>
+                            <li>✓ Entrega puntual.</li>
+                            <li>✓ Siempre los mejores.</li>
+                            <li>✓ Hecho desde 0.</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Soluciones Digitales. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    
+</div>
+    <script>
+        // Configuración de Three.js
+        let scene, camera, renderer, particles, mouseX = 0, mouseY = 0;
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
+
+        function init() {
+            const container = document.getElementById('canvas-container');
+
+            // Crear escena
+            scene = new THREE.Scene();
+
+            // Crear cámara
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
+            camera.position.z = 1000;
+
+            // Crear geometría de partículas
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const colors = [];
+
+            for (let i = 0; i < 10000; i++) {
+                vertices.push(
+                    Math.random() * 2000 - 1000,
+                    Math.random() * 2000 - 1000,
+                    Math.random() * 2000 - 1000
+                );
+
+                // Colores gradient
+                const color = new THREE.Color();
+                color.setHSL(
+                    (Math.random() * 0.3) + 0.5, // Hue entre azul y púrpura
+                    0.7, // Saturación
+                    0.5 + Math.random() * 0.3 // Luminosidad
+                );
+                
+                colors.push(color.r, color.g, color.b);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+            // Material de partículas
+            const material = new THREE.PointsMaterial({
+                size: 2,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            // Crear sistema de partículas
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            // Crear renderer
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+
+            // Event listeners
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
+            window.addEventListener('scroll', onWindowScroll, false);
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+        }
+
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function onWindowScroll() {
+            const scrollY = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollProgress = scrollY / maxScroll;
+
+            // Rotar partículas basado en scroll
+            particles.rotation.x = scrollProgress * Math.PI * 2;
+            particles.rotation.y = scrollProgress * Math.PI;
+
+            // Mover cámara
+            camera.position.y = scrollProgress * 500;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotación suave basada en mouse
+            particles.rotation.x += (mouseY * 0.00005);
+            particles.rotation.y += (mouseX * 0.00005);
+
+            // Rotación automática
+            particles.rotation.x += 0.0005;
+            particles.rotation.y += 0.0003;
+
+            // Render
+            renderer.render(scene, camera);
+        }
+
+        // Inicializar cuando se carga la página
+        window.addEventListener('load', () => {
+            init();
+            animate();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+/* ---------- LOGO ---------- */
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 100;
+}
+
+.logo2 {
+    width: auto;
+    height: 100px;          /* antes 40 px  */
+    max-height: 15vh;       /* no se pasa en pantallas grandes */
+    transition: transform 0.3s ease;
+}
+
+.logo2:hover { transform: scale(1.1); }
+
+/* ---------- BASE ---------- */
+body {
+    font-family: 'Whyte';
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    background: #000;
+    padding: 2px;
+
+    /* NUEVO → centra todo el texto en bloque por defecto */
+    text-align: center;
+}
+
+/* Background con gradiente */
+.grid-background{
+  background: radial-gradient(circle at top left,#0d0d0d 0%,#000 60%),
+              radial-gradient(circle at bottom right,#003366 0%,#000 80%);
+  background-blend-mode: screen;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- CONTENEDOR GLOBAL ---------- */
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ---------- STATS (TÍTULO + PANELES) ---------- */
+.stats-title{
+  font-family:'Whyte';
+  font-size:1.3rem;
+  font-weight:700;
+  font-style:italic;
+  margin-top:15rem;
+  margin-bottom:2.5rem;
+  padding:0 2rem;
+  animation:fadeInUp 1s ease forwards;
+  opacity:0;
+}
+
+.stats-title h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, #003366 65%, #a0a0a0 45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* para que se lea mejor sobre fondo oscuro */
+}
+
+
+.stats-title p{
+  font-size:1.1rem;
+  color:#ffffff;
+}
+
+.stats-panels-wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 2rem;
+  margin-top:3rem;
+  margin-bottom:6rem;
+}
+
+.stats-panels{
+  display:flex;
+  justify-content:center;   /* ← centrado horizontal */
+  align-items:center;       /* ← centrado vertical */
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+
+.stats-box{
+  flex:1 1 280px;
+  max-width:300px;
+  background:linear-gradient(135deg,#ffffff6b,#ffffff);
+  padding:1rem 1rem 1.2rem;
+  border-radius:25px;
+  text-align:center;
+  transition:transform .3s ease, box-shadow .3s ease;
+  min-height:100px;
+  color:#ffffff;
+}
+
+.stats-box i{
+  padding:8px;
+  border-radius:50%;
+  background-color:#003366;
+  font-size:1.2rem;
+  color:#fff;
+  margin-bottom:.6rem;
+}
+
+.stats-box h3{
+  font-size:1.1rem;
+  font-weight:700;
+  font-family:'Poppins',sans-serif;
+  margin-bottom:.4rem;
+}
+
+.stats-box p{
+  font-size:.9rem;
+  color:#003366;
+  font-family:'Poppins',sans-serif;
+}
+
+.stats-box:hover{ box-shadow:0 4px 14px rgba(0,0,0,.08); }
+
+/* ---------- HERO / HEADER ---------- */
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;     /* ← centrado horizontal */
+    padding:0 2rem;
+    position:relative;
+    text-align:center;      /* ← centrado de texto */
+}
+
+.badge{
+    background:#003366;
+    backdrop-filter:blur(10px);
+    padding:.5rem 1rem;
+    border-radius:25px;
+    font-size:.9rem;
+    margin-bottom:2rem;
+    border:1px solid rgba(255,255,255,.63);
+    animation:fadeInUp 1s ease-out;
+}
+
+h1{
+    font-family:'Whyte';
+    font-size:clamp(3rem,5vw,8rem);
+    font-weight:900;
+    margin-bottom:2rem;
+    background:linear-gradient(135deg,#ffffff 0%,#a0a0a0 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    animation:fadeInUp 1s ease-out .2s both;
+}
+
+.subtitle{
+    font-size:clamp(1.1rem,2.5vw,1.4rem);
+    color:rgba(255,255,255,.8);
+    max-width:600px;
+    margin-bottom:3rem;
+    line-height:1.6;
+    animation:fadeInUp 1s ease-out .4s both;
+}
+
+/* ---------- BOTONES ---------- */
+.buttons{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    justify-content:center; /* ← centrado horizontal */
+    align-items:center;     /* ← centrado vertical */
+    animation:fadeInUp 1s ease-out .6s both;
+}
+
+.btn{
+    padding:1rem 2rem;
+    border:none;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .3s ease;
+    text-decoration:none;
+    display:inline-block;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-primary,
+.btn-secondary{
+    background:rgba(255,255,255,.1);
+    box-shadow:0 10px 30px rgba(1,98,194,.452);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.3);
+    backdrop-filter:blur(10px);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    background:rgba(255,255,255,.2);
+    transform:translateY(-2px);
+}
+
+/* ---------- SECCIÓN SERVICIOS ---------- */
+.services{
+    padding:8rem 0;
+    background:rgba(0,0,0,.3);
+    backdrop-filter:blur(10px);
+}
+
+.services h2{
+    font-family:'Whyte';
+    font-size:3rem;
+    margin-bottom:4rem;
+    background:linear-gradient(135deg,#fff 0%,#a0a0a0 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem;
+    margin-top:4rem;
+    justify-items:center;   /* ← centra cada tarjeta */
+}
+
+.service-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:2.5rem;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    transition:all .3s ease;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,.1);
+    border-color:rgba(255,255,255,.3);
+}
+
+.service-icon{ font-size:3rem; margin-bottom:1.5rem; }
+
+.service-card h3{ font-size:1.5rem; margin-bottom:1rem; color:#fff; }
+
+.service-card p{ color:rgba(255,255,255,.8); line-height:1.6; }
+
+/* ---------- ABOUT ---------- */
+.about{
+    color:#003366;
+    padding:8rem 0;
+}
+
+.about h2 {
+  font-family: 'Whyte';
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(135deg, #003366 75%, #a0a0a0 35%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.4); /* Mejora el contraste */
+}
+
+
+.about-content{
+    max-width:800px;
+    margin:0 auto;
+}
+
+.about-text p{
+    font-size:1.2rem;
+    color:rgba(255,255,255,.89);
+    margin-bottom:2rem;
+}
+
+.about-text ul{
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1rem;
+    margin-top:2rem;
+    justify-items:center;  /* ← centra ítems de la lista */
+}
+
+.about-text li{ font-size:1.1rem; color:#003366; }
+
+/* ---------- FOOTER ---------- */
+footer{
+    padding:2rem 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:rgba(255,255,255,.84);
+}
+
+/* ---------- ANIMACIONES ---------- */
+@keyframes fadeInUp{
+    from{ opacity:0; transform:translateY(30px);}
+    to  { opacity:1; transform:translateY(0);}
+}
+
+/* ---------- RESPONSIVE  ≤ 768 px ---------- */
+@media(max-width:768px){
+    .hero{ padding:0 1rem; }
+
+    .about-text ul{
+        grid-template-columns:1fr;
+    }
+
+    .services h2,
+    .about h2{ font-size:2rem; }
+
+    .container{ padding:0 1rem; }
+
+    .stats-title{ margin-top:12rem; }
+
+    .stats-panels{ flex-direction:column; }
+
+    .stats-box{ max-width:350px; }
+
+    .subtitle{ text-align:center; }
+}
+
+/* ---------- RESPONSIVE  ≤ 480 px ---------- */
+@media(max-width:480px){
+    .hero{ height:75vh; }
+
+    .stats-title{ margin-top:10rem; }
+
+    .stats-title h2{ font-size:2rem; }
+
+    .buttons{ gap:.75rem; }
+}
+
+/* ---------- TARJETA VENTAJAS (se mantiene) ---------- */
+.ventajas{
+  background:linear-gradient(135deg,#ffffff6b,#ffffff);
+  color:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  max-width:450px;
+  margin:30px auto;
+  font-family:'Segoe UI',sans-serif;
+}
+
+.ventajas ul{ list-style:none; padding:0; margin:0; }
+.ventajas li{ margin-bottom:12px; font-size:17px; }
