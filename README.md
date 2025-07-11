@@ -19,4 +19,4 @@ MARVOSHOP es una tienda virtual desarrollada para facilitar la venta de producto
 1. Ingresar a este link:
 
 ```bash
-https://marvo223.github.io/MARVOSHOP/
+https://marvo223.github.io/shopmarvo/
